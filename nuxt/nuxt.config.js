@@ -1,7 +1,24 @@
 /*
+ ** Environment Variables
+ */
+
+const MY_NUXT_URL = "edit me!";
+const MY_WP_URL = "edit me!";
+const MY_GQL_URL = "Probably MY_WP_URL/graphql";
+
+const NUXT_URL =
+  process.env.NODE_ENV === "production" ? MY_NUXT_URL : "http://localhost:3000";
+const WP_URL =
+  process.env.NODE_ENV === "production" ? MY_WP_URL : "http://localhost:8080";
+const WP_GQL_URL =
+  process.env.NODE_ENV === "production"
+    ? MY_GQL_URL
+    : "http://localhost:8080/graphql";
+
+/*
  ** Polyfills that we find to be frequently needed
  */
-const features = ["fetch", "Object.assign", "Object.entries"].join("%2C")
+const features = ["fetch", "Object.assign", "Object.entries"].join("%2C");
 
 module.exports = {
   mode: "universal",
@@ -50,7 +67,31 @@ module.exports = {
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  axios: {
+    browserBaseURL: NUXT_URL
+  },
+  /*
+   ** Apollo Configuration
+   */
+  apollo: {
+    tokenName: "apollo-token", // default value
+    tokenExpires: 10, // default 7 days
+    includeNodeModules: true, // this includes graphql-tag for node_modules
+    authenticationType: "Basic", // default 'Bearer'
+    // optional
+    // errorHandler(error) {
+    //   console.log("Global error handler");
+    //   console.error(error.message);
+    //   console.error(error.graphQLErrors);
+    //   console.error(error.networkError);
+    //   console.error(error.gqlError);
+    // },
+    errorHandler: "~/plugins/apollo-error-handler.js",
+    // required
+    clientConfigs: {
+      default: "~/apollo/client-configs/default.js"
+    }
+  },
   /*
    ** Build configuration
    */
@@ -58,6 +99,22 @@ module.exports = {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    extend(config, ctx) {
+      // Add sourcemaps
+      if (ctx.isClient) {
+        config.devtool = "#source-map";
+      } else if (ctx.isDev) {
+        config.devtool = "inline-source-map";
+      }
+      // Run ESLint on save
+      if (ctx.isDev && ctx.isClient) {
+        config.module.rules.push({
+          enforce: "pre",
+          test: /\.(js|vue)$/,
+          loader: "eslint-loader",
+          exclude: /(node_modules)/
+        });
+      }
+    }
   }
-}
+};
