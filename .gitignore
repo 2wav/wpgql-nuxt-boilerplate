@@ -38,6 +38,9 @@ build/Release
 node_modules/
 jspm_packages/
 
+# Package Lock
+package-lock.json
+
 # TypeScript v1 declaration files
 typings/
 
@@ -84,16 +87,3 @@ nuxt/dist
 
 wp/db_data
 wp/wp-content/uploads
-wp/db_data/mysql/innodb_index_stats.ibd
-wp/db_data/ib_buffer_pool
-wp/db_data/ib_logfile0
-wp/db_data/ibdata1
-wp/db_data/mysql/innodb_table_stats.ibd
-wp/db_data/wtdi_wordpress/wp_options.ibd
-wp/db_data/wtdi_wordpress/wp_postmeta.ibd
-wp/db_data/wtdi_wordpress/wp_usermeta.ibd
-wp/db_data/wtdi_wordpress/wp_postmeta.ibd
-wp/db_data/ib_logfile0
-wp/db_data/ibdata1
-wp/db_data/wtdi_wordpress/wp_options.ibd
-wp/sedWAYXR9
