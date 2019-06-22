@@ -27,6 +27,8 @@ module.exports = {
         "avoidEscape": true,
         "allowTemplateLiterals": true
       }
-    ]
+    ],
+    "vue/no-v-html": 0,
+    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
   }
 }
