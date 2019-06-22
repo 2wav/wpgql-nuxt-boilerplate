@@ -27,5 +27,9 @@ Content Retrieval: [WPGraphQL](https://github.com/wp-graphql/wp-graphql) GraphQL
 * [@nuxtjs/redirect-module](https://www.npmjs.com/package/@nuxtjs/redirect-module): Easy redirects in Nuxt. Used to make `/wp-admin` link to the wordpress app.
 
 ## Notes
-* We've left the prettier and eslint configurations almost entirely untouched except for switching to double quotes because that's what we use in-house.
+* We've left the prettier and eslint configurations almost entirely untouched, but with some exceptions.
+    * We use double quotes in house.
+    * We also use semicolons.
+    * We've disabled no-html because that's how we import content from Wordpress.
+    * We've disabled no-console because you are going to be using it a *lot* while you're debugging server-side stuff.
 * We've imported a few polyfills (fetch, object.assign, and object.entries) from [polyfill.io](https://polyfill.io/) that we frequently need.
