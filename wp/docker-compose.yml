@@ -1,0 +1,37 @@
+version: "3.7"
+
+services:
+  wordpress:
+    depends_on:
+      - db
+    image: wordpress:5.2.2-php7.3-apache
+    container_name: wpgql-nuxt-wordpress
+    restart: always
+    ports:
+      - "8080:80"
+    working_dir: /var/www/html
+    volumes:
+      - ./:/var/www/html/
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_NAME: wpgql-nuxt-wordpress
+
+  db:
+    image: mysql:5.7
+    container_name: wpgql-nuxt-mysql
+    volumes:
+      - ./db_data:/var/lib/mysql
+    restart: always
+    ports:
+      - "13306:3306"
+    environment:
+      MYSQL_DATABASE: wpgql-nuxt-wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+      MYSQL_RANDOM_ROOT_PASSWORD: "1"
+
+volumes:
+  wordpress_files:
+  db_data:
