@@ -57,12 +57,20 @@ module.exports = {
     "@nuxtjs/apollo",
     "@nuxtjs/eslint-module",
     "@nuxtjs/pwa",
+    "@nuxtjs/style-resources",
     [
       "@nuxtjs/redirect-module",
       // eslint-disable-next-line prettier/prettier
       [{ from: "^/wp-admin", to: WP_URL }, { from: "^/login", to: "/admin" }]
     ]
   ],
+  styleResources: {
+    scss: [
+      "./assets/scss/_colors.scss",
+      "./assets/scss/_mixins.scss",
+      "./assets/scss/_functions.scss"
+    ]
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
