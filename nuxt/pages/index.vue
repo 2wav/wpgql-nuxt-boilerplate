@@ -17,6 +17,12 @@
           >Boilerplate Documentation</a
         >
         <a
+          href="https://docs.wpgraphql.com"
+          target="_blank"
+          class="button button--blue"
+          >WPGraphQL Documentation</a
+        >
+        <a
           href="https://nuxtjs.org/"
           target="_blank"
           class="button button--green"
