@@ -4,16 +4,11 @@
 
 const MY_NUXT_URL = "edit me!";
 const MY_WP_URL = "edit me!";
-const MY_GQL_URL = "Probably MY_WP_URL/graphql";
 
 const NUXT_URL =
   process.env.NODE_ENV === "production" ? MY_NUXT_URL : "http://localhost:3000";
 const WP_URL =
   process.env.NODE_ENV === "production" ? MY_WP_URL : "http://localhost:8080";
-const WP_GQL_URL =
-  process.env.NODE_ENV === "production"
-    ? MY_GQL_URL
-    : "http://localhost:8080/graphql";
 
 /*
  ** Polyfills that we find to be frequently needed
