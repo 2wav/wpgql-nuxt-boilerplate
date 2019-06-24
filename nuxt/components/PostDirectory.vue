@@ -43,8 +43,7 @@ export default {
       const queryType = this.$props.queryType;
       const query = queryType === "posts" ? GetPosts : GetPages;
       const variables = {
-        first: this.pageSize,
-        endCursor: this.endCursor
+        first: this.pageSize
       };
       /**
        * Update should only be used to update the data
