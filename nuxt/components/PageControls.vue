@@ -1,13 +1,15 @@
 <template>
   <section class="page-controls">
     <button
-      class="page-controls__button page-controls__button--previous button--green"
+      class="page-controls__button page-controls__button--previous"
+      :class="{ 'page-controls__button--disabled': !hasPreviousPage }"
       @click="clickedPrevious"
     >
       Previous Page
     </button>
     <button
-      class="page-controls__button page-controls__button--next button--green"
+      class="page-controls__button page-controls__button--next"
+      :class="{ 'page-controls__button--disabled': !hasNextPage }"
       @click="clickedNext"
     >
       Next Page
@@ -41,3 +43,11 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+.page-controls {
+  &__button {
+    @include button;
+  }
+}
+</style>
