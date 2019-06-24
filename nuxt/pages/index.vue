@@ -56,4 +56,10 @@ export default {
 .links {
   padding-top: 15px;
 }
+.button {
+  @include button;
+  &--blue {
+    @include button("blue");
+  }
+}
 </style>
