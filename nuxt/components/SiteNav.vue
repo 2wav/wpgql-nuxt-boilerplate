@@ -31,10 +31,9 @@ export default {
 .site-nav {
   padding: 0.5rem 0;
   width: 100%;
-  &__item {
-    & + & {
-      margin-left: 1rem;
-    }
+  &__button {
+    color: get-color("green");
+    @include button;
   }
 }
 </style>
