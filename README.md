@@ -26,6 +26,10 @@ Content Retrieval: [WPGraphQL](https://github.com/wp-graphql/wp-graphql) GraphQL
 * [@nuxtjs/style-resources](https://www.npmjs.com/package/@nuxtjs/style-resources): Share style resources across components (the `styleResources` block in `nuxt.config.js`).
 * [@nuxtjs/redirect-module](https://www.npmjs.com/package/@nuxtjs/redirect-module): Easy redirects in Nuxt. Used to make `/wp-admin` link to the wordpress app.
 
+## Wordpress Plugins
+1. [WPGraphQL](https://github.com/wp-graphql/wp-graphql): Allow GraphQL queries against the Wordpress database.
+1. [WP Headless](https://wordpress.org/plugins/wp-headless/): Disable the WP frontend
+
 ## Notes
 * We've left the prettier and eslint configurations almost entirely untouched, but with some exceptions.
     * We use double quotes in house.
