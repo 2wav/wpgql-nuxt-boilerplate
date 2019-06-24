@@ -60,8 +60,13 @@ module.exports = {
     // Doc: https://axios.nuxtjs.org/usage
     "@nuxtjs/axios",
     "@nuxtjs/apollo",
+    "@nuxtjs/eslint-module",
     "@nuxtjs/pwa",
-    "@nuxtjs/eslint-module"
+    [
+      "@nuxtjs/redirect-module",
+      // eslint-disable-next-line prettier/prettier
+      [{ from: "^/wp-admin", to: WP_URL }, { from: "^/login", to: "/admin" }]
+    ]
   ],
   /*
    ** Axios module configuration
