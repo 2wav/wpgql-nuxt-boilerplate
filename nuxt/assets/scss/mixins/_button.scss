@@ -1,0 +1,41 @@
+@mixin active-green {
+  color: #fff;
+  background-color: get-color("green");
+}
+@mixin active-blue {
+  color: #fff;
+  background-color: get-color("blue");
+}
+@mixin button($type: "green") {
+  border-radius: 4px;
+  border: 1px solid currentColor;
+  display: inline-block;
+  padding: 10px 30px;
+  text-decoration: none;  
+  & + & {
+    margin-left: 1rem;
+  }
+  &:hover {
+    text-decoration: none;
+  }
+  @if $type == "blue" {
+    color: get-color("blue");
+    &:hover, &--active {
+      @include active-blue
+    }
+  }
+  @if $type == "green" {
+    color: get-color("green");
+    &:hover {
+      @include active-green;
+    }
+    &--active {
+      @include active-green;
+    }
+  }
+  &--disabled {
+    border-color: get-color("grey");
+    color: get-color("grey");
+    pointer-events: none;
+  }
+}
