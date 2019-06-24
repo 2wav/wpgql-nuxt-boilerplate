@@ -1,0 +1,14 @@
+query GetPageBySlug($uri: String) {
+  pageBy(uri: $uri) {
+    pageId
+    uri
+    slug
+    title
+    content
+    featuredImage {
+      caption
+      mediaType
+      sourceUrl
+    }
+  }
+}

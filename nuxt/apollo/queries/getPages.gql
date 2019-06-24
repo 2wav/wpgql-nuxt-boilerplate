@@ -1,0 +1,35 @@
+query GetPages(
+  $first: Int,
+  $after: String,
+  $last: Int,
+  $before: String
+) {
+  pages(
+    first: $first,
+    after: $after,
+    last: $last,
+    before: $before
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      endCursor
+      startCursor
+    }
+    edges {
+      node {
+        title
+        excerpt
+        pageId
+        uri
+        author {
+          name
+        }
+        featuredImage {
+          sourceUrl
+          caption
+        }
+      }
+    }
+  }
+}

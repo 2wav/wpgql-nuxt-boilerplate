@@ -1,0 +1,19 @@
+query GetPostBySlug($uri: String) {
+  post: postBy(uri: $uri) {
+    title
+    content
+    id
+    slug
+    author {
+      name
+      description
+    }
+    date
+    postId
+    status
+    featuredImage {
+      sourceUrl
+      caption
+    }
+  }
+}

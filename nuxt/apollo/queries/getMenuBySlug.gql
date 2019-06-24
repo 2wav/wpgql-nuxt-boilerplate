@@ -1,0 +1,17 @@
+query GetMenuBySlug($slug: String) {
+  menus(where:{slug: $slug}) {
+    nodes {
+      id
+      slug
+      menuItems {
+        nodes {
+          id
+          menuItemId
+          label
+          url
+        }
+      }
+    }
+    
+  }
+}
