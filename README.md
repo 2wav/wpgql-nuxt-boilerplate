@@ -15,11 +15,19 @@ Content Retrieval: [WPGraphQL](https://github.com/wp-graphql/wp-graphql) GraphQL
 1. Follow the Wordpress installation instructions.
 1. Go to the plugins page.
 1. Activate all plugins.
-1. Go to Wordpress Settings->Permalinks and set to anything but the default.
+1. Go to Settings->Permalinks and set to anything but the default.
+1. Go to Tools->Import, click Run Importer, and import `WP Import.xml` from the `support` directory.
 1. Open a new terminal session **(leave your Docker session running)**.
 1. `cd` into the `/nuxt` directory (if you didn't change directories, `cd ../nuxt`).
 1. Install node modules `npm i`.
 1. Start the application `npm run dev`.
+
+## Included in the Box
+* Menu support: See `SiteNav.vue`. You must know the name of your menu.
+    * Menu items also get highlighted when you're on their route!
+* Get page or post content: see `/pages/_.vue` and `/posts/_.vue`.
+* Get and paginate a list of pages or posts: see `PostDirectory.vue`.
+* Globally accessible SCSS variables, mixins, and functions: see `/assets/scss`.
 
 ## Additional NPM packages for Nuxt
 * [@nuxtjs/apollo](https://www.npmjs.com/package/@nuxtjs/apollo): Apollo inside Nuxt.
@@ -31,7 +39,7 @@ Content Retrieval: [WPGraphQL](https://github.com/wp-graphql/wp-graphql) GraphQL
 
 ## Wordpress Plugins
 1. [WPGraphQL](https://github.com/wp-graphql/wp-graphql): Allow GraphQL queries against the Wordpress database.
-1. [WP Headless](https://wordpress.org/plugins/wp-headless/): Disable the WP frontend
+1. [WP Headless](https://wordpress.org/plugins/wp-headless/): Disable the WP frontend, to avoid confusion.
 
 ## Notes
 * We've left the prettier and eslint configurations almost entirely untouched, but with some exceptions.
@@ -42,4 +50,6 @@ Content Retrieval: [WPGraphQL](https://github.com/wp-graphql/wp-graphql) GraphQL
 * We've imported a few polyfills (fetch, object.assign, and object.entries) from [polyfill.io](https://polyfill.io/) that we frequently need.
 * You often need to restart Nuxt after editing nuxt.config.js—do so by typing rs into the terminal session that's running the app.
 * You also often need to restart Nuxt from the console if it's crashing on a GraphQL query.
-* There are multiple ways to create an apollo object. We've included examples of writing as an object with properies (/pages/_.vue) and writing as a function that returns an object (SiteNav.vue).
+* There are multiple ways to create an Apollo object. We've included examples of writing as an object with properies (/pages/_.vue) and writing as a function that returns an object (SiteNav.vue).
+    * You have to use the function version if you want to use component data in the query (e.g. in the variables).
+* Right now, the application gets the schema from a JSON file that we downloaded. This should be replaced with a programmatic method.
