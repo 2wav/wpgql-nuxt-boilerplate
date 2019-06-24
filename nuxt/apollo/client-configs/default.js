@@ -11,14 +11,19 @@ const fragmentMatcher = new IntrospectionFragmentMatcher({
   introspectionQueryResultData: schema
 });
 
+const MY_GQL_URL = "Probably MY_WP_URL/graphql";
+const WP_GQL_URL =
+  process.env.NODE_ENV === "production"
+    ? MY_GQL_URL
+    : "http://localhost:8080/graphql";
+
 export default ({ req, app }) => {
   const headersVal = {
     "Accept-Language": "en-us"
   };
   return {
-    httpEndpoint: process.env.WP_GQL_URL,
+    httpEndpoint: WP_GQL_URL,
     httpLinkOptions: {
-      credentials: "include",
       headers: headersVal
     },
     cache: new InMemoryCache({ fragmentMatcher })
