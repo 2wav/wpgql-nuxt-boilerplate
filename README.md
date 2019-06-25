@@ -10,7 +10,7 @@ Content Retrieval: [WPGraphQL](https://github.com/wp-graphql/wp-graphql) GraphQL
 1. Download and install [Docker Desktop](https://www.docker.com/products/docker-desktop).
 1. Clone the repository: `git clone https://github.com/2wav/wpgql-nuxt-boilerplate.git`.
 1. Change to wp directory: `cd wpgql-nuxt-boilerplate/wp`.
-1. Start the Docker container `dc up`.
+1. Start the Docker container `docker-compose up`.
 1. Open a web browser and visit localhost:8080.
 1. Follow the Wordpress installation instructions.
 1. Go to the plugins page.
