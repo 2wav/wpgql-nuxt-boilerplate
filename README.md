@@ -30,6 +30,7 @@ Content Retrieval: [WPGraphQL](https://github.com/wp-graphql/wp-graphql) GraphQL
 * Get and paginate a list of pages or posts: see `PostDirectory.vue`.
 * Globally accessible SCSS variables, mixins, and functions: see `/assets/scss`.
 * Testing with Jest.
+* JSDoc working within Vue files.
 
 ## Additional NPM packages for Nuxt
 * [@nuxtjs/apollo](https://www.npmjs.com/package/@nuxtjs/apollo): Apollo inside Nuxt.
@@ -38,6 +39,7 @@ Content Retrieval: [WPGraphQL](https://github.com/wp-graphql/wp-graphql) GraphQL
 * [@nuxtjs/redirect-module](https://www.npmjs.com/package/@nuxtjs/redirect-module): Easy redirects in Nuxt. Used to make `/wp-admin` link to the wordpress app (see the `@nuxtjs/redirect-module` in the `modules` section of `nuxt.config.js`).
 * [webpack](https://www.npmjs.com/package/webpack), [node-sass](https://github.com/sass/node-sass), and [sass-loader](https://www.npmjs.com/package/sass-loader): Compile SCSS into CSS .
 * [lodash](https://lodash.com/): Trying to get undefined properties in your queries will tank your whole site, so you'll be using [`_.get()`](https://lodash.com/docs/4.17.11#get) a lot.
+* [jsdoc](https://www.npmjs.com/package/jsdoc), [jsdoc-vue](https://www.npmjs.com/package/jsdoc-vue), [jsdoc-export-default-interop](https://www.npmjs.com/package/jsdoc-export-default-interop), [vue-template-compiler](https://www.npmjs.com/package/vue-template-compiler): Generate JSDocs from comments, even in Vue templates.
 
 ## Wordpress Plugins
 1. [WPGraphQL](https://github.com/wp-graphql/wp-graphql): Allow GraphQL queries against the Wordpress database.
