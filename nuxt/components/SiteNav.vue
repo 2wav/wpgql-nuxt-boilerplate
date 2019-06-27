@@ -16,18 +16,32 @@ import { get } from "lodash";
 
 import GetMenuBySlug from "~/apollo/queries/getMenuBySlug";
 export default {
+  /**
+   * This is an example of a SmartQuery object directly on the template, rather than created through a function.
+   * @type {SmartQuery}
+   */
   apollo: {
     siteNav: {
       query: GetMenuBySlug,
       variables: {
         slug: "site-nav"
       },
+      /**
+       * Return the menu items
+       * @param {Object} data The data returned by the SmartQuery.
+       * @returns {Object[]} A list of menu items.
+       */
       update(data) {
         return data.menus.nodes[0].menuItems.nodes;
       }
     }
   },
   methods: {
+    /**
+     * Determine if the menu item is the active page
+     * @param {String} label The menu item's label.
+     * @returns {Boolean}
+     */
     activeItem(label) {
       const path = get(this.$route, "path");
       const lowerCaseLabel = label.toLowerCase();

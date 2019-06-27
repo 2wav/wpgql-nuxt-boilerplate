@@ -34,11 +34,17 @@ export default {
     }
   },
   methods: {
-    clickedPrevious() {
-      this.$emit("clickedPrevious");
-    },
+    /**
+     * Emit an event to the parent, which in this case will load the next page of results.
+     */
     clickedNext() {
       this.$emit("clickedNext");
+    },
+    /**
+     * Emit an event to the parent, which in this case will load the previous page of results.
+     */
+    clickedPrevious() {
+      this.$emit("clickedPrevious");
     }
   }
 };

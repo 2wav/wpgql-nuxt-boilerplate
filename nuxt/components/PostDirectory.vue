@@ -38,7 +38,10 @@ export default {
     };
   },
   apollo: {
-    // If you want to use the page's data in the query (say, as variables), you must write the Apollo object as a function
+    /**
+     * If you want to use the page's data in the query (say, as variables), you must write the Apollo object as a function
+     * @returns {SmartQuery} an apollo object
+     */
     posts() {
       const queryType = this.$props.queryType;
       const query = queryType === "posts" ? GetPosts : GetPages;
@@ -60,6 +63,7 @@ export default {
       /**
        * Use the result function to do anything other than update the data
        * Result is an object with one data property so we immediately destructure it
+       * This function refetches the hasNextPage and hasPreviousPage queries after we get new search results
        * @param {Object} result
        */
       const result = function result({ data }) {
@@ -89,6 +93,11 @@ export default {
         result
       };
     },
+    /**
+     * Determine if there's a next page of results.
+     * Takes the current page of results and checks if pageInfo.hasNextPage is true.
+     * @returns {SmartQuery}
+     */
     hasNextPage() {
       const queryType = this.$props.queryType;
       const query = queryType === "posts" ? GetPosts : GetPages;
@@ -96,6 +105,11 @@ export default {
         first: this.pageSize,
         after: this.startCursor
       };
+      /**
+       * Set the hasNextPage property
+       * @param {Object} data the result of the gql query
+       * @returns {Boolean}
+       */
       const update = function update(data) {
         const pageInfo = get(data, `${queryType}.pageInfo`);
         if (pageInfo) {
@@ -108,6 +122,11 @@ export default {
         update
       };
     },
+    /**
+     * Determine if there's a previous page of results.
+     * Runs the reverse of the current page query (starts at the end and counts backwards) and checks if hasPreviousPage is true.
+     * @returns {SmartQuery}
+     */
     hasPreviousPage() {
       const queryType = this.$props.queryType;
       const query = queryType === "posts" ? GetPosts : GetPages;
@@ -115,6 +134,11 @@ export default {
         last: this.pageSize,
         before: this.endCursor
       };
+      /**
+       * Set the hasPreviousPage property
+       * @param {Object} data the result of the gql query
+       * @returns {Boolean}
+       */
       const update = function update(data) {
         const pageInfo = get(data, `${queryType}.pageInfo`);
         if (pageInfo) {
@@ -129,6 +153,9 @@ export default {
     }
   },
   methods: {
+    /**
+     * Get more results by refetching the page query, starting at the endCursor and going forward.
+     */
     loadNextPage() {
       this.$apollo.queries.posts.refetch({
         after: this.endCursor,
@@ -137,6 +164,9 @@ export default {
         last: null
       });
     },
+    /**
+     * Get the previous page of results by starting at the start cursor and getting a before list.
+     */
     loadPreviousPage() {
       this.$apollo.queries.posts.refetch({
         after: null,

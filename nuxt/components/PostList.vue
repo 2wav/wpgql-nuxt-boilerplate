@@ -29,6 +29,8 @@ export default {
   methods: {
     /**
      * Posts live at /post and pages at /, so we need to give a different uri, depending
+     * @param {Object} post The post.
+     * @returns {Strong} The link.
      */
     postLink(post) {
       return this.$props.postType === "pages"
