@@ -16,7 +16,8 @@
     "dev": "npm run gen-schema-json && npm run fragments && npm run dev-watch",
     "build": "nuxt build",
     "start": "cross-env NODE_ENV=production node server/index.js",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "docs": "./node_modules/jsdoc/jsdoc.js -c jsdoc.conf.json -r ."
   },
   "dependencies": {
     "@nuxtjs/apollo": "^4.0.0-rc7",
@@ -32,6 +33,7 @@
   "devDependencies": {
     "@nuxtjs/eslint-config": "^0.0.1",
     "@nuxtjs/eslint-module": "^0.0.1",
+    "@vue/cli-shared-utils": "^3.8.0",
     "@vue/test-utils": "^1.0.0-beta.27",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
@@ -48,11 +50,16 @@
     "eslint-plugin-standard": ">=4.0.0",
     "eslint-plugin-vue": "^5.2.2",
     "jest": "^24.1.0",
+    "jsdoc": "^3.6.2",
+    "jsdoc-export-default-interop": "^0.3.1",
+    "jsdoc-vue": "^1.0.0",
     "node-sass": "^4.12.0",
     "nodemon": "^1.18.9",
     "prettier": "^1.16.4",
     "sass-loader": "^7.1.0",
+    "typescript": "^3.5.2",
     "vue-jest": "^3.0.3",
+    "vue-template-compiler": "^2.6.10",
     "webpack": "^4.35.0"
   }
 }

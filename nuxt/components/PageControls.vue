@@ -18,6 +18,10 @@
 </template>
 
 <script>
+/**
+ * Control buttons for pagination.
+ * @namespace PageControls
+ */
 export default {
   props: {
     hasPreviousPage: {
@@ -36,12 +40,16 @@ export default {
   methods: {
     /**
      * Emit an event to the parent, which in this case will load the next page of results.
+     * @name clickedNext
+     * @memberof PageControls
      */
     clickedNext() {
       this.$emit("clickedNext");
     },
     /**
      * Emit an event to the parent, which in this case will load the previous page of results.
+     * @name clickedPrevious
+     * @memberof PageControls
      */
     clickedPrevious() {
       this.$emit("clickedPrevious");

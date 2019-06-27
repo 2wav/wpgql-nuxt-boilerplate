@@ -1,0 +1,28 @@
+{
+  "tags": {
+    "allowUnknownTags": true
+  },
+  "plugins": [
+    "node_modules/jsdoc-vue",
+    "./node_modules/jsdoc-export-default-interop/dist/index"
+  ],
+  "source": {
+    "includePattern": "\\.(vue|js)$",
+    "exclude": [
+      "node_modules",
+      "plugins",
+      "docs"
+    ]
+  },
+  "sourceType": "module",
+  "opts": {
+    "destination": "./docs"
+  },
+  "templates": {
+    "cleverLinks": false,
+    "monospaceLinks": false,
+    "default": {
+        "outputSourceFiles": true
+    }
+  }
+}

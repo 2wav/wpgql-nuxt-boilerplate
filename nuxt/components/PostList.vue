@@ -11,6 +11,9 @@
 </template>
 
 <script>
+/**
+ * @namespace PostList
+ */
 export default {
   props: {
     posts: {
@@ -29,6 +32,8 @@ export default {
   methods: {
     /**
      * Posts live at /post and pages at /, so we need to give a different uri, depending
+     * @name postLink
+     * @memberof PostList
      * @param {Object} post The post.
      * @returns {Strong} The link.
      */
@@ -40,6 +45,8 @@ export default {
     /**
      * Wordpress will send you an excerpt with [...] at the end
      * We want that to look better!
+     * @name makeBetterExcerptLink
+     * @memberof PostList
      * @param {Object} page The page object we retrieved with GQL
      * @returns {String} The excerpt, but with a better link
      */
