@@ -25,15 +25,17 @@ Content Retrieval: [WPGraphQL](https://github.com/wp-graphql/wp-graphql) GraphQL
 ## Included in the Box
 * Menu support: See `SiteNav.vue`. You must know the name of your menu.
     * Menu items also get highlighted when you're on their route!
+* Programmatically generated introspection fragment matcher: see `package.json`, `/apollo/client-configs/default.js` and `fragments.js`.
 * Get page or post content: see `/pages/_.vue` and `/posts/_.vue`.
 * Get and paginate a list of pages or posts: see `PostDirectory.vue`.
 * Globally accessible SCSS variables, mixins, and functions: see `/assets/scss`.
+* Testing with Jest.
 
 ## Additional NPM packages for Nuxt
 * [@nuxtjs/apollo](https://www.npmjs.com/package/@nuxtjs/apollo): Apollo inside Nuxt.
 * [nuxt-vuex-router-sync](https://www.npmjs.com/package/nuxt-vuex-router-sync): Keep the current route in the Vuex store.
 * [@nuxtjs/style-resources](https://www.npmjs.com/package/@nuxtjs/style-resources): Share style resources across components (the `styleResources` block in `nuxt.config.js`).
-* [@nuxtjs/redirect-module](https://www.npmjs.com/package/@nuxtjs/redirect-module): Easy redirects in Nuxt. Used to make `/wp-admin` link to the wordpress app.
+* [@nuxtjs/redirect-module](https://www.npmjs.com/package/@nuxtjs/redirect-module): Easy redirects in Nuxt. Used to make `/wp-admin` link to the wordpress app (see the `@nuxtjs/redirect-module` in the `modules` section of `nuxt.config.js`).
 * [webpack](https://www.npmjs.com/package/webpack), [node-sass](https://github.com/sass/node-sass), and [sass-loader](https://www.npmjs.com/package/sass-loader): Compile SCSS into CSS .
 * [lodash](https://lodash.com/): Trying to get undefined properties in your queries will tank your whole site, so you'll be using [`_.get()`](https://lodash.com/docs/4.17.11#get) a lot.
 
@@ -52,4 +54,4 @@ Content Retrieval: [WPGraphQL](https://github.com/wp-graphql/wp-graphql) GraphQL
 * You also often need to restart Nuxt from the console if it's crashing on a GraphQL query.
 * There are multiple ways to create an Apollo object. We've included examples of writing as an object with properies (/pages/_.vue) and writing as a function that returns an object (SiteNav.vue).
     * You have to use the function version if you want to use component data in the query (e.g. in the variables).
-* Right now, the application gets the schema from a JSON file that we downloaded. This should be replaced with a programmatic method.
+* There's currently some odd gql error spew in the console. I'm trying to track it down.
